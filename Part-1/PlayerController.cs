@@ -9,15 +9,14 @@ public class PlayerController : MonoBehaviour {
 	public float vspeed=5.0f;
 	public float xspeed=2f;
 	private bool jump;
-	public Animator animator;
-	private Vector3 playerPosition;
-	private Quaternion playerrot;
+	
+	
+	
 	// Use this for initialization
 	void Start () {
 		player =GetComponent<Rigidbody> ();
 		player.velocity = new Vector3 (0, 0, 0);
-		playerPosition= animator.transform.localPosition;
-		playerrot = animator.transform.rotation;
+		
 	}
 	
 	// Update is called once per frame
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 		
 		player.velocity = new Vector3 (player.velocity.x, player.velocity.y, movingspeed);
-			animator.SetFloat ("Velocity", player.velocity.z);
+			
 
 
 		if ((jump)&&(Input.GetKeyDown ("space"))) 
@@ -37,18 +36,16 @@ public class PlayerController : MonoBehaviour {
 
 
 		if (Input.GetKey("left")) {
-			//player.velocity = new Vector3 (-xspeed, 2f ,0);
+			
 			player.transform.position+=Vector3.left*xspeed*Time.deltaTime;
-		//	jump=false;
-		}//player.velocity = new Vector3 (0, 0 ,movingspeed);
+		
+		}
 
 		if (Input.GetKey("right")) {
 			player.transform.position+=Vector3.right*xspeed*Time.deltaTime;
-		//	jump=false;
-
+		
 		}
-		animator.SetFloat ("Velocity", player.velocity.z);
-		animator.SetBool ("onPlatform", jump);
+		
 	}
 
 
@@ -59,11 +56,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 	}
-	void LateUpdate () {
-		
-		animator.transform.localPosition =playerPosition;
-		animator.transform.localRotation = playerrot;
-	}
+	
 
 
 }
