@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 			
 		}
 		if (Input.GetKey("right")) {
-			player.transform.position+=Vector3.left*xspeed*Time.deltaTime;
+			player.transform.position+=Vector3.right*xspeed*Time.deltaTime;
 			
 
 		}
