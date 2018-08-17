@@ -38,7 +38,8 @@ public GameObject GetPlaform()
 			}
 		
 		}
-		return null;
+		GameObject p=Instantiate(plats[Random.Range(0,plats.Length)]);
+		return p;
 	}
 
 
