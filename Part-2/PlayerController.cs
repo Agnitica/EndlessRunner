@@ -23,13 +23,11 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKey ("up")) 
-		{
 		
 			player.velocity = new Vector3 (player.velocity.x, player.velocity.y, movingspeed);
 			animator.SetFloat ("Velocity", player.velocity.z);
 
-		}
+		
 		if ((jump)&&(Input.GetKeyDown ("space"))) 
 		{    
 			player.velocity = new Vector3 (player.velocity.x, vspeed ,player.velocity.z);
@@ -37,16 +35,16 @@ public class PlayerController : MonoBehaviour {
 	    } 
 
 
-		if (Input.GetKeyDown ("left")) {
-			player.velocity = new Vector3 (-xspeed, 2f ,player.velocity.z);
-			jump=false;
+		if (Input.GetKey ("left")) {
+			player.transform.position+=Vector3.left*xspeed*Time.deltaTime;
+			
 		}
-		if (Input.GetKeyDown ("right")) {
-			player.velocity = new Vector3 (xspeed, 2f ,player.velocity.z);
-			jump = false;
+		if (Input.GetKey("right")) {
+			player.transform.position+=Vector3.left*xspeed*Time.deltaTime;
+			
 
 		}
-		animator.SetFloat ("Velocity", player.velocity.z);
+		
 		animator.SetBool ("onPlatform", jump);
 	}
 
