@@ -58,17 +58,17 @@ public class PlayerController : MonoBehaviour {
 
 
 			if (Input.GetKey ("left")) {
-				//player.velocity = new Vector3 (-xspeed, 2f ,0);
+				
 				player.transform.position += Vector3.left * xspeed * Time.deltaTime;
-				//	jump=false;
-			}//player.velocity = new Vector3 (0, 0 ,movingspeed);
+				
+			}
 
 			if (Input.GetKey ("right")) {
 				player.transform.position += Vector3.right * xspeed * Time.deltaTime;
-				//	jump=false;
+				
 
 			}
-			//animator.SetFloat ("Velocity", player.velocity.z);
+			
 			animator.SetBool ("onPlatform", jump);
 		}
 
@@ -99,13 +99,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-	//private IEnumerator kickback(){
-
-//	Debug.Log ("hello");
-//		yield return new WaitForSeconds (1f);
-//		ktimer = 0;
-
-//	}
+	
 
 	void LateUpdate () {
 		
